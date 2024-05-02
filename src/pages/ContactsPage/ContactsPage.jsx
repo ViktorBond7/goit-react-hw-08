@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectLoading } from "../../redux/contacts/selectors";
 import ContactList from "../../components/ContactList/ContactList";
+import Loading from "../../components/Loading/Loading";
 
 export default function TasksPage() {
   const dispatch = useDispatch();
@@ -17,9 +18,9 @@ export default function TasksPage() {
   return (
     <>
       {/* <DocumentTitle>Your tasks</DocumentTitle> */}
-      {/* <TaskEditor /> */}
-      <div>{isLoading && "Request in progress..."}</div>
+
       <ContactList />
+      <div>{isLoading && <Loading />}</div>
     </>
   );
 }

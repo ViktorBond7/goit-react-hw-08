@@ -7,7 +7,7 @@ import css from "./AppBar.module.css";
 
 export const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
   return (
     <header className={css.header}>
       <Navigation />

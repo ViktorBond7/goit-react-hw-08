@@ -19,6 +19,9 @@ const ContactsPage = lazy(() =>
 import { refreshUser } from "./redux/auth/operations";
 import Layout from "../src/components/Layout";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const EditContactPage = lazy(() =>
+  import("./pages/EditContactPage/EditContactPage")
+);
 
 import RestrictedRoute from "./components/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute";
@@ -57,6 +60,13 @@ export const App = () => {
           path="/contacts"
           element={
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+
+        <Route
+          path="/editcontac"
+          element={
+            <PrivateRoute redirectTo="/login" component={<EditContactPage />} />
           }
         />
       </Routes>

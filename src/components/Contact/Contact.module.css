@@ -13,6 +13,7 @@
   height: 80px;
   width: 280px;
   gap: 20px;
+  position: relative;
 }
 
 .page {
@@ -23,6 +24,33 @@
 }
 
 .btn {
-  border: 2px;
-  background-color: rgb(205, 211, 209);
+  background-color: rgba(0, 0, 0, 0);
+  width: 20px;
+  height: 20px;
+  outline: none;
+  border: none;
+}
+
+.containerbutton {
+  display: flex;
+  width: 50px;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-right: 0;
+}
+
+.icondel {
+  color: rgb(37, 37, 67);
+  size: 50;
+  position: absolute;
+  top: 42px;
+  right: 25px;
+}
+
+.iconcorecta {
+  color: rgb(105, 11, 11);
+  size: 50;
+  position: absolute;
+  top: 10px;
+  right: 25px;
 }
