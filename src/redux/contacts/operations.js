@@ -27,9 +27,25 @@ export const deleteContact = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   "contacts/addContact",
-  async (contactsId, thunkAPI) => {
+  async (contactId, thunkAPI) => {
     try {
-      const response = await axios.post("/contacts", contactsId);
+      const response = await axios.post("/contacts", contactId);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editContact = createAsyncThunk(
+  "contacts/editContact",
+  async (contact, thunkAPI) => {
+    const contactId = contact.id;
+    try {
+      const response = await axios.patch(`/contacts/${contactId}`, {
+        name: contact.name,
+        number: contact.number,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

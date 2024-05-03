@@ -64,7 +64,7 @@ export const App = () => {
         />
 
         <Route
-          path="/editcontac"
+          path="/editcontac/:id"
           element={
             <PrivateRoute redirectTo="/login" component={<EditContactPage />} />
           }

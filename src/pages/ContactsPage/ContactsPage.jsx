@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectLoading } from "../../redux/contacts/selectors";
 import ContactList from "../../components/ContactList/ContactList";
+
 import Loading from "../../components/Loading/Loading";
 
 export default function TasksPage() {

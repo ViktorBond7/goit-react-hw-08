@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
+
 import {
   selectError,
   selectFilteredContacts,
@@ -17,15 +18,15 @@ const ContactList = () => {
       <ContactForm />
       <SearchBox />
       <ul className={css.list}>
-        {error && (
-          <p>Oops, there was an error, please try reloading!!! {error}</p>
-        )}
         {visibleContacts.map((item) => (
           <li className={css.contact} key={item.id}>
             <Contact contacts={item} />
           </li>
         ))}
       </ul>
+      {error && (
+        <p>Oops, there was an error, please try reloading!!! {error}</p>
+      )}
     </div>
   );
 };
