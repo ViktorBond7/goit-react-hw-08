@@ -21,7 +21,7 @@ export default function TasksPage() {
       {/* <DocumentTitle>Your tasks</DocumentTitle> */}
 
       <ContactList />
-      <div>{isLoading && <Loading />}</div>
+      {isLoading && <Loading />}
     </>
   );
 }

@@ -1,18 +1,11 @@
+import { RiContactsBookLine } from "react-icons/ri";
+import css from "./HomePage.module.css";
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <div className={css.container}>
+      <RiContactsBookLine size={400} />
+      <h1>Contacts book</h1>
+    </div>
+  );
 };
 export default HomePage;
-// export default function HomePage() {
-//   return (
-//     <>
-//       <div>
-//         <h1>
-//           Task manager welcome page{" "}
-//           <span role="img" aria-label="Greeting icon">
-//             💁‍♀️
-//           </span>
-//         </h1>
-//       </div>
-//     </>
-//   );
-// }

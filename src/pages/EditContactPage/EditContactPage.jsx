@@ -1,6 +1,6 @@
 // import ContactForm from "../../components/ContactForm/ContactForm";
 // import ContactForm from "../../components/ContactForm/ContactForm";
-import { EditForm } from "../../components/EditForm/EditForm";
+import EditForm from "../../components/EditForm/EditForm";
 // import EditModal from "../../components/ModalEdit/ModalEdit";
 
 const EditContactPage = () => {
@@ -10,7 +10,6 @@ const EditContactPage = () => {
       {/* <ContactForm /> */}
       <EditForm />
       {/* <EditModal /> */}
-      <p>fhffhff</p>
     </div>
   );
 };

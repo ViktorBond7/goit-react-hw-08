@@ -32,12 +32,11 @@ export const LoginForm = () => {
           .unwrap()
           .then(() => {
             toast.success("Successfully toasted!");
-            actions.resetForm();
           })
           .catch(() => {
             toast.error("This didn't work.");
           });
-        // actions.resetForm();
+        actions.resetForm();
       }}
     >
       <Form className={css.form} autoComplete="off">
