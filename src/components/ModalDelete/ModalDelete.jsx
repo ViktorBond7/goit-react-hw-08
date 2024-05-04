@@ -1,5 +1,6 @@
 import css from "./ModalDelete.module.css";
 import Modal from "react-modal";
+
 const customStyles = {
   content: {
     top: "50%",

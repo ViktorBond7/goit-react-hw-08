@@ -16,7 +16,7 @@ const userSchema = Yup.object().shape({
     .required("This is a required field"),
 });
 
-export const RegistrationForm = () => {
+const RegistrationForm = () => {
   const dispatch = useDispatch();
   const nameId = useId();
   const emailId = useId();
@@ -82,6 +82,7 @@ export const RegistrationForm = () => {
   );
 };
 
+export default RegistrationForm;
 // export const RegistrationForm = () => {
 //   const dispatch = useDispatch();
 

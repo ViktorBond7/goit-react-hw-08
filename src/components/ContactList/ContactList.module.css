@@ -11,3 +11,9 @@
   /* height: 100px; */
   width: calc((100% - 36px) / 4);
 }
+
+.title {
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 50px;
+}
