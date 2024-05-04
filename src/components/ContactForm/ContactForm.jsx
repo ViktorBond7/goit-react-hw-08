@@ -41,7 +41,8 @@ const ContactForm = () => {
         dispatch(addContact(newContact))
           .unwrap()
           .then(() => {
-            toast.success("Successfully toasted!");
+            toast.success("Success message", "Title here");
+            console.log("jhhhhhhhhhhh");
           })
           .catch(() => {
             toast.error("This didn't work.");

@@ -1,0 +1,8 @@
+.btn {
+  background-color: antiquewhite;
+}
+.container {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}

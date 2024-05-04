@@ -1,7 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import css from "./ModalDelete.module.css";
 import Modal from "react-modal";
-
 const customStyles = {
   content: {
     top: "50%",
@@ -15,25 +13,27 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-const deleteContact = ({ modalIsOpen, closeModal, openModal }) => {
+const DeleteContact = ({ isOpen, deleteContact, closeModal }) => {
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
       <Modal
-        isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
+        isOpen={isOpen}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+        <h3>I'm sure you want to delete?</h3>
+        <div className={css.container}>
+          <button className={css.btn} onClick={closeModal}>
+            Close
+          </button>
+          <button className={css.btn} onClick={deleteContact}>
+            Delete
+          </button>
+        </div>
       </Modal>
     </div>
   );
 };
+
+export default DeleteContact;

@@ -1,18 +1,22 @@
 import { FaPhoneAlt, FaUser } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { IoMdCog } from "react-icons/io";
-
 import css from "./Contact.module.css";
-
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 import { NavLink } from "react-router-dom";
+import DeleteContact from "../ModalDelete/ModalDelete";
+import { useState } from "react";
 // import EditModal from "../ModalEdit/ModalEdit";
 // import { useState } from "react";
 // import { editContact } from "../../redux/contacts/operations";
 
 const Contact = ({ contacts: { name, number, id } }) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
+  const handelDelete = () => {
+    dispatch(deleteContact(id));
+  };
 
   return (
     <div className={css.container}>
@@ -30,7 +34,7 @@ const Contact = ({ contacts: { name, number, id } }) => {
         <button
           className={css.btn}
           type="button"
-          onClick={() => dispatch(deleteContact(id))}
+          onClick={() => setIsOpen(true)}
         >
           <MdDeleteForever size="1.5em" className={css.iconcorecta} />
         </button>
@@ -38,6 +42,11 @@ const Contact = ({ contacts: { name, number, id } }) => {
         <NavLink to={`/editcontac/${id}`} className={css.btn}>
           <IoMdCog size="1.5em" className={css.icondel} />
         </NavLink>
+        <DeleteContact
+          isOpen={modalIsOpen}
+          deleteContact={handelDelete}
+          closeModal={() => setIsOpen(false)}
+        />
       </div>
     </div>
   );
