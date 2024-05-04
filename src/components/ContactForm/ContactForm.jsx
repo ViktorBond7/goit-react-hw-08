@@ -4,16 +4,16 @@ import * as Yup from "yup";
 import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
-import { toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Name must be at least 3 symb long")
-    .max(50, "The name must be no more than 50 characters long")
+    .max(20, "The name must be no more than 20 characters long")
     .required("This is a required field"),
   number: Yup.string()
     .min(3, "Name must be at least 3 symb long")
-    .max(50, "The name must be no more than 50 characters long")
+    .max(20, "The name must be no more than 20 characters long")
     .matches(
       /(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})/g
     )
@@ -42,7 +42,6 @@ const ContactForm = () => {
           .unwrap()
           .then(() => {
             toast.success("Success message", "Title here");
-            console.log("jhhhhhhhhhhh");
           })
           .catch(() => {
             toast.error("This didn't work.");
@@ -72,6 +71,7 @@ const ContactForm = () => {
         <button className={css.btn} type="submit">
           Add contact
         </button>
+        <Toaster position="bottom-center" />
       </Form>
     </Formik>
   );

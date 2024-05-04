@@ -7,6 +7,7 @@ import { deleteContact } from "../../redux/contacts/operations";
 import { NavLink } from "react-router-dom";
 import DeleteContact from "../ModalDelete/ModalDelete";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 // import EditModal from "../ModalEdit/ModalEdit";
 // import { useState } from "react";
 // import { editContact } from "../../redux/contacts/operations";
@@ -15,7 +16,14 @@ const Contact = ({ contacts: { name, number, id } }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const handelDelete = () => {
-    dispatch(deleteContact(id));
+    dispatch(deleteContact(id))
+      .unwrap()
+      .then(() => {
+        toast.success("Success message", "Title here");
+      })
+      .catch(() => {
+        toast.error("This didn't work.");
+      });
   };
 
   return (
@@ -48,6 +56,7 @@ const Contact = ({ contacts: { name, number, id } }) => {
           closeModal={() => setIsOpen(false)}
         />
       </div>
+      <Toaster position="bottom-center" />
     </div>
   );
 };

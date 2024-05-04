@@ -6,15 +6,16 @@ import css from "./EditForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Name must be at least 3 symb long")
-    .max(50, "The name must be no more than 50 characters long")
+    .max(20, "The name must be no more than 20 characters long")
     .required("This is a required field"),
   number: Yup.string()
     .min(3, "Name must be at least 3 symb long")
-    .max(50, "The name must be no more than 50 characters long")
+    .max(20, "The name must be no more than 20 characters long")
     .matches(
       /(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})/g
     )
@@ -45,9 +46,15 @@ const EditForm = () => {
           number: values.number,
           id: values.id,
         };
-        dispatch(editContact(newKontact));
+        dispatch(editContact(newKontact))
+          .unwrap()
+          .then(() => {
+            toast.success("Success message", "Title here");
+          })
+          .catch(() => {
+            toast.error("This didn't work.");
+          });
         action.resetForm;
-        console.log(newKontact);
         navigate("/contacts");
       }}
     >
@@ -78,6 +85,7 @@ const EditForm = () => {
           <NavLink className={css.link} to={"/contacts"}>
             Exit
           </NavLink>
+          <Toaster position="bottom-center" />
         </Form>
       )}
     </Formik>
