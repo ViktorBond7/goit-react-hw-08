@@ -5,6 +5,7 @@ import {
   editContact,
   fetchContacts,
 } from "./operations";
+import { logOut } from "../auth/operations";
 
 const contactSlice = createSlice({
   name: "contacts",
@@ -70,6 +71,11 @@ const contactSlice = createSlice({
       .addCase(editContact.rejected, (state) => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
+        state.error = null;
+        state.loading = false;
       }),
 });
 
