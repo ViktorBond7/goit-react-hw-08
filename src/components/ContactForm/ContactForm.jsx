@@ -71,7 +71,6 @@ const ContactForm = () => {
         <button className={css.btn} type="submit">
           Add contact
         </button>
-        <Toaster position="bottom-center" />
       </Form>
     </Formik>
   );
